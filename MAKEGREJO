@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Makegrejo - Frutas con historia, sabor y propósito</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+            color: #2d2d2d;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #F57C00 0%, #FBC02D 100%);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: white;
+        }
+
+        .logo-image {
+            width: 70px;
+            height: 70px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            overflow: hidden;
+            padding: 5px;
+        }
+
+        .logo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-name {
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .logo-tagline {
+            font-size: 0.85rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s;
+            display: inline-block;
+        }
+
+        .nav-links a:hover {
+            transform: translateY(-2px);
+            text-shadow: 0 2px 8px rgba(255,255,255,0.5);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #F57C00 0%, #FBC02D 50%, #388E3C 100%);
+            padding: 6rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: drift 20s linear infinite;
+        }
+
+        @keyframes drift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            color: white;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            animation: fadeInUp 1s 0.2s backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-button {
+            background: white;
+            color: #F57C00;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            animation: fadeInUp 1s 0.4s backwards;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+            background: #FBC02D;
+            color: white;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #F57C00;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #F57C00, #388E3C);
+            margin: 1rem auto;
+            border-radius: 2px;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(245, 124, 0, 0.3);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #F57C00, #FBC02D);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-image.emoji {
+            font-size: 6rem;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 20%, transparent 20%);
+            background-size: 30px 30px;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #2d2d2d;
+        }
+
+        .product-info p {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            color: #F57C00;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .price-detail {
+            font-size: 0.9rem;
+            color: #388E3C;
+            margin-bottom: 1rem;
+        }
+
+        .buy-button {
+            width: 100%;
+            background: linear-gradient(135deg, #F57C00, #FBC02D);
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .buy-button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(245, 124, 0, 0.4);
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background: linear-gradient(135deg, #fff8f0 0%, #fffbf0 100%);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+            border-top: 4px solid #F57C00;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            color: #F57C00;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Recipes Section */
+        .recipes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .recipe-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .recipe-card:hover {
+            transform: scale(1.03);
+        }
+
+        .recipe-header {
+            background: linear-gradient(135deg, #F57C00, #FBC02D);
+            padding: 3rem;
+            text-align: center;
+            font-size: 3rem;
+        }
+
+        .recipe-body {
+            padding: 1.5rem;
+        }
+
+        .recipe-body h3 {
+            color: #F57C00;
+            margin-bottom: 1rem;
+        }
+
+        .recipe-body ul {
+            list-style-position: inside;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Company Section */
+        .company {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .company-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .company-text h3 {
+            color: #F57C00;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .company-text p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .company-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid #388E3C;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #F57C00;
+            display: block;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .company-image {
+            background: linear-gradient(135deg, #F57C00, #FBC02D);
+            border-radius: 20px;
+            height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10rem;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .company-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .certifications {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .cert-badge {
+            background: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            color: #F57C00;
+            font-weight: bold;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            font-size: 0.9rem;
+            border: 2px solid #FBC02D;
+        }
+
+        .values-list {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-top: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .values-list h4 {
+            color: #388E3C;
+            margin-bottom: 1rem;
+        }
+
+        .values-list ul {
+            list-style: none;
+            color: #666;
+        }
+
+        .values-list li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .values-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #388E3C;
+            font-weight: bold;
+        }
+
+        /* Promo Banner */
+        .promo-banner {
+            background: linear-gradient(135deg, #388E3C 0%, #4CAF50 100%);
+            padding: 2rem;
+            text-align: center;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
+        .promo-banner span {
+            background: #FBC02D;
+            color: #2d2d2d;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            margin: 0 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+            color: white;
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #FBC02D;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #ccc;
+            line-height: 1.8;
+            text-decoration: none;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: #F57C00;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            background: #F57C00;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: #FBC02D;
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #444;
+            color: #999;
+        }
+
+        @media (max-width: 968px) {
+            .company-content {
+                grid-template-columns: 1fr;
+            }
+
+            .company-image {
+                height: 300px;
+                font-size: 6rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .logo-name {
+                font-size: 1.3rem;
+            }
+
+            .logo-tagline {
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-image">
+                    <img src="https://lh3.googleusercontent.com/d/1y5JJ3FPZUfbyL6GgDLzoSPrSvCMN2Sjz" alt="Makegrejo Logo">
+                </div>
+                <div class="logo-text">
+                    <div class="logo-name">Makegrejo</div>
+                    <div class="logo-tagline">Frutas con historia, sabor y propósito</div>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#beneficios">Beneficios</a></li>
+                <li><a href="#recetas">Recetas</a></li>
+                <li><a href="#empresa">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="promo-banner">
+        ¡Oferta Especial! <span>10% OFF</span> en tu primera compra escaneando el QR
+    </div>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Descubre Frutas Exóticas con Propósito</h1>
+            <p>Cada fruta cuenta una historia. Conectamos culturas a través de sabores únicos</p>
+            <button class="cta-button" onclick="document.getElementById('productos').scrollIntoView({behavior: 'smooth'})">
+                Explorar Productos
+            </button>
+        </div>
+    </section>
+
+    <section id="productos">
+        <h2>Nuestras Frutas Exóticas</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://lh3.googleusercontent.com/d/1rjs_Tb_agIoUVuNgW82ebWxr4sElDXCq" alt="Caja Rambután">
+                </div>
+                <div class="product-info">
+                    <h3>Rambután</h3>
+                    <p>Fruta tropical de piel roja y vellosa, con pulpa dulce y jugosa. Rica en vitamina C y antioxidantes.</p>
+                    <div class="price">$1.20 USD</div>
+                    <div class="price-detail">Caja de 6 unidades: $6.50 USD</div>
+                    <button class="buy-button">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://lh3.googleusercontent.com/d/1DhSQL1tt1zOFEn4qgmeSf5mEjKD_Nh-t" alt="Caja Pitahaya">
+                </div>
+                <div class="product-info">
+                    <h3>Pitahaya (Fruta del Dragón)</h3>
+                    <p>Exótica fruta de cactus, refrescante y llena de nutrientes. Perfecta para batidos y postres.</p>
+                    <div class="price">$1.50 USD</div>
+                    <div class="price-detail">Caja de 6 unidades: $7.50 USD</div>
+                    <button class="buy-button">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://lh3.googleusercontent.com/d/179f45D1XvllcbuinG5-EG8LYDVt3WHfd" alt="Caja Mangostán">
+                </div>
+                <div class="product-info">
+                    <h3>Mangostán</h3>
+                    <p>La "reina de las frutas" con sabor dulce único y propiedades antiinflamatorias excepcionales.</p>
+                    <div class="price">$1.80 USD</div>
+                    <div class="price-detail">Caja de 6 unidades: $8.50 USD</div>
+                    <button class="buy-button">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://lh3.googleusercontent.com/d/1TDOcJCSsO7KJTL6qCEvGcjLoVRONw9po" alt="Caja Liche">
+                </div>
+                <div class="product-info">
+                    <h3>Liche (Lychee)</h3>
+                    <p>Fruta aromática con pulpa translúcida y dulce sabor floral. Perfecta para cócteles y ensaladas.</p>
+                    <div class="price">$1.30 USD</div>
+                    <div class="price-detail">Caja de 6 unidades: $6.90 USD</div>
+                    <button class="buy-button">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://lh3.googleusercontent.com/d/1FVHxh1VBI1pJ9FFXavk81CbwpI9cEcff" alt="Caja Durian">
+                </div>
+                <div class="product-info">
+                    <h3>Durian</h3>
+                    <p>El "rey de las frutas" con sabor intenso y cremoso. Una experiencia única para paladares aventureros.</p>
+                    <div class="price">$2.50 USD</div>
+                    <div class="price-detail">Caja de 6 unidades: $12.00 USD</div>
+                    <button class="buy-button">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://lh3.googleusercontent.com/d/14yKpwQk2f-MKnHS11NkpFmsuBfXjUvuv" alt="Caja Carambola">
+                </div>
+                <div class="product-info">
+                    <h3>Carambola (Fruta Estrella)</h3>
+                    <p>Fruta con forma de estrella, sabor cítrico-dulce. Ideal para decorar y dar un toque tropical.</p>
+                    <div class="price">$1.10 USD</div>
+                    <div class="price-detail">Caja de 6 unidades: $6.00 USD</div>
+                    <button class="buy-button">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="product-card" style="grid-column: span 1;">
+                <div class="product-image">
+                    <img src="https://lh3.googleusercontent.com/d/1F5kovZbwAu7CSCtxoLNQZnuFOG_uUBW7" alt="Caja Mixta">
+                </div>
+                <div class="product-info">
+                    <h3>🎁 Caja Mixta Exótica</h3>
+                    <p>Incluye 1 unidad de cada una de nuestras 6 frutas exóticas. ¡El regalo perfecto para descubrir nuevos sabores!</p>
+                    <div class="price">$7.80 USD</div>
+                    <div class="price-detail">6 frutas diferentes en una caja</div>
+                    <button class="buy-button">Añadir al Carrito</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="beneficios" class="benefits">
+        <h2>Beneficios del Rambután y Frutas Exóticas</h2>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">💪</div>
+                <h3>Rico en Vitamina C</h3>
+                <p>Fortalece tu sistema inmunológico y combate enfermedades naturalmente.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">✨</div>
+                <h3>Antioxidantes Poderosos</h3>
+                <p>Combate los radicales libres y retrasa el envejecimiento celular.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🔋</div>
+                <h3>Energía Natural</h3>
+                <p>Carbohidratos saludables para mantenerte activo todo el día.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">💚</div>
+                <h3>Bajo en Calorías</h3>
+                <p>Delicioso y nutritivo, perfecto para dietas balanceadas.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🌟</div>
+                <h3>Mejora la Digestión</h3>
+                <p>Alto contenido de fibra para una salud intestinal óptima.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">❤️</div>
+                <h3>Salud Cardiovascular</h3>
+                <p>Ayuda a reducir el colesterol y mejora la circulación sanguínea.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="recetas">
+        <h2>Recetas con Rambután</h2>
+        <div class="recipes-grid">
+            <div class="recipe-card">
+                <div class="recipe-header">🥗</div>
+                <div class="recipe-body">
+                    <h3>Ensalada Tropical Makegrejo</h3>
+                    <ul>
+                        <li>10 rambutanes pelados</li>
+                        <li>Hojas de espinaca fresca</li>
+                        <li>Queso feta desmenuzado</li>
+                        <li>Nueces caramelizadas</li>
+                        <li>Vinagreta de miel y limón</li>
+                        <li>Semillas de chía</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-header">🍹</div>
+                <div class="recipe-body">
+                    <h3>Smoothie Energético</h3>
+                    <ul>
+                        <li>8 rambutanes pelados</li>
+                        <li>1 plátano maduro</li>
+                        <li>1 taza de yogurt natural</li>
+                        <li>Jugo de naranja natural</li>
+                        <li>Hielo y miel al gusto</li>
+                        <li>Hojas de menta fresca</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="recipe-card">
+                <div class="recipe-header">🍨</div>
+                <div class="recipe-body">
+                    <h3>Sorbet de Rambután</h3>
+                    <ul>
+                        <li>15 rambutanes congelados</li>
+                        <li>Jugo de 2 limones frescos</li>
+                        <li>1/2 taza de azúcar o miel</li>
+                        <li>1 taza de agua mineral</li>
+                        <li>Hojas de menta para decorar</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="empresa" class="company">
+        <h2>Conoce Makegrejo</h2>
+        <div class="company-content">
+            <div class="company-text">
+                <h3>Más que Frutas, Experiencias con Propósito</h3>
+                <p>
+                    <strong>Makegrejo Company</strong> nació en 2025 en Bogotá, Colombia, con una misión clara: transformar la forma en que las personas consumen frutas exóticas. No vendemos solo productos, ofrecemos experiencias que conectan culturas a través de sabores únicos.
+                </p>
+                <p>
+                    <strong>Nuestra Historia:</strong> Cada fruta que importamos desde Tailandia, Vietnam, Perú y Colombia viene con una historia. Desde el empaque hasta la experiencia digital, creamos un viaje cultural que educa y emociona a nuestros clientes.
+                </p>
+                <p>
+                    <strong>Compromiso con la Calidad:</strong> Trabajamos directamente con 18 productores asociados, garantizando prácticas de comercio justo y sostenibilidad. Nuestras certificaciones internacionales respaldan nuestro compromiso con la excelencia y la seguridad alimentaria.
+                </p>
+
+                <div class="values-list">
+                    <h4>Nuestros Valores</h4>
+                    <ul>
+                        <li>Transparencia en cada proceso</li>
+                        <li>Educación cultural a través de la comida</li>
+                        <li>Comercio justo con productores</li>
+                        <li>Conexión entre culturas</li>
+                        <li>Sostenibilidad ambiental</li>
+                        <li>Creatividad e innovación</li>
+                    </ul>
+                </div>
+
+                <div class="certifications">
+                    <span class="cert-badge">✓ Certificación Orgánica</span>
+                    <span class="cert-badge">✓ FDA Aprobado</span>
+                    <span class="cert-badge">✓ Fair Trade</span>
+                    <span class="cert-badge">✓ HACCP</span>
+                </div>
+
+                <div class="company-stats">
+                    <div class="stat-card">
+                        <span class="stat-number">2</span>
+                        <span class="stat-label">Años de Experiencia</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">Países de Origen</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">Toneladas Mensuales</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">1,000+</span>
+                        <span class="stat-label">Clientes Satisfechos</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="company-image">
+                🌍
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Makegrejo Company</h3>
+                <p>Frutas con historia, sabor y propósito</p>
+                <p style="margin-top: 1rem;">
+                    <strong>Razón Social:</strong> Makegrejo S.A.S.<br>
+                    <strong>NIT:</strong> 901234567-8
+                </p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p>📍 Bogotá, Colombia</p>
+                <p>📱 WhatsApp: +57 324 623 9177</p>
+                <p>📧 makegrego@gmail.com</p>
+                <p>🕐 Lun-Sáb: 9:00 AM - 6:00 PM (GMT-5)</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Información</h3>
+                <a href="#productos">Productos</a>
+                <a href="#beneficios">Beneficios</a>
+                <a href="#recetas">Recetas</a>
+                <a href="#empresa">Sobre Nosotros</a>
+                <p style="margin-top: 1rem;"><strong>Monto Mínimo de Pedido:</strong></p>
+                <p>Nacional: $40 USD</p>
+                <p>Internacional: $150 USD</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Síguenos</h3>
+                <div class="social-links">
+                    <a href="https://facebook.com/makegrejo" target="_blank" title="Facebook">f</a>
+                    <a href="https://instagram.com/makegrejo" target="_blank" title="Instagram">📷</a>
+                    <a href="https://linkedin.com/company/makegrejo" target="_blank" title="LinkedIn">in</a>
+                    <a href="https://tiktok.com/@makegrejo" target="_blank" title="TikTok">🎵</a>
+                    <a href="https://youtube.com/makegrejo" target="_blank" title="YouTube">▶</a>
+                </div>
+                <p style="margin-top: 1rem;">
+                    <strong>Tiempos de Entrega:</strong><br>
+                    Nacional: 7 días hábiles<br>
+                    Internacional: 15 días hábiles<br>
+                    Express: 7 días hábiles
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p><strong>Métodos de Pago:</strong> Efectivo | Tarjetas | Transferencias</p>
+            <p style="margin-top: 1rem;">© 2025 Makegrejo S.A.S. - Todos los derechos reservados | Frutas con historia, sabor y propósito</p>
+            <p>Garantía de frescura | Política de devoluciones | Protección de datos del cliente</p>
+        </div>
+    </footer>
+
+    <script>
+        // Animaciones al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.product-card, .benefit-card, .recipe-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Funcionalidad de los botones
+        document.querySelectorAll('.buy-button, .cta-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if(this.classList.contains('buy-button')) {
+                    const originalText = this.textContent;
+                    const originalBg = this.style.background;
+                    this.textContent = '✓ Añadido al Carrito';
+                    this.style.background = '#388E3C';
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                        this.style.background = originalBg;
+                    }, 2000);
+                }
+            });
+        });
+
+        // Scroll suave para navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
