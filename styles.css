@@ -92,7 +92,7 @@ nav {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, #F57C00 0%, #FBC02D 50%, #388E3C 100%);
+    background: linear-gradient(135deg, #3a610f 0%, #b0d4a1 50%, #c86d56 100%);
     padding: 6rem 2rem;
     text-align: center;
     position: relative;
@@ -152,7 +152,7 @@ nav {
 
 .cta-button {
     background: white;
-    color: #F57C00;
+    color: #3a610f;
     padding: 1rem 3rem;
     border: none;
     border-radius: 50px;
@@ -167,7 +167,7 @@ nav {
 .cta-button:hover {
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 12px 30px rgba(0,0,0,0.3);
-    background: #FBC02D;
+    background: #b0d4a1;
     color: white;
 }
 
@@ -182,7 +182,7 @@ h2 {
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 3rem;
-    color: #F57C00;
+    color: #3a610f;
     position: relative;
 }
 
@@ -191,7 +191,7 @@ h2::after {
     display: block;
     width: 100px;
     height: 4px;
-    background: linear-gradient(90deg, #F57C00, #388E3C);
+    background: linear-gradient(90deg, #3a610f, #b0d4a1);
     margin: 1rem auto;
     border-radius: 2px;
 }
@@ -214,13 +214,13 @@ h2::after {
 
 .product-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(245, 124, 0, 0.3);
+    box-shadow: 0 15px 40px rgba(58, 97, 15, 0.3);
 }
 
 .product-image {
     width: 100%;
     height: 280px;
-    background: linear-gradient(135deg, #F57C00, #FBC02D);
+    background: linear-gradient(135deg, #b0d4a1, #c86d56);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -267,20 +267,20 @@ h2::after {
 
 .price {
     font-size: 1.8rem;
-    color: #F57C00;
+    color: #3a610f;
     font-weight: bold;
     margin-bottom: 1rem;
 }
 
 .price-detail {
     font-size: 0.9rem;
-    color: #388E3C;
+    color: #c86d56;
     margin-bottom: 1rem;
 }
 
 .buy-button {
     width: 100%;
-    background: linear-gradient(135deg, #F57C00, #FBC02D);
+    background: linear-gradient(135deg, #3a610f, #b0d4a1);
     color: white;
     border: none;
     padding: 0.8rem;
@@ -293,7 +293,7 @@ h2::after {
 
 .buy-button:hover {
     transform: scale(1.02);
-    box-shadow: 0 5px 15px rgba(245, 124, 0, 0.4);
+    box-shadow: 0 5px 15px rgba(58, 97, 15, 0.4);
 }
 
 /* Benefits Section */
@@ -314,7 +314,7 @@ h2::after {
     text-align: center;
     box-shadow: 0 5px 20px rgba(0,0,0,0.08);
     transition: transform 0.3s;
-    border-top: 4px solid #F57C00;
+    border-top: 4px solid #3a610f;
 }
 
 .benefit-card:hover {
@@ -327,7 +327,7 @@ h2::after {
 }
 
 .benefit-card h3 {
-    color: #F57C00;
+    color: #3a610f;
     margin-bottom: 0.5rem;
 }
 
@@ -351,7 +351,7 @@ h2::after {
 }
 
 .recipe-header {
-    background: linear-gradient(135deg, #F57C00, #FBC02D);
+    background: linear-gradient(135deg, #b0d4a1, #c86d56);
     padding: 3rem;
     text-align: center;
     font-size: 3rem;
@@ -362,7 +362,7 @@ h2::after {
 }
 
 .recipe-body h3 {
-    color: #F57C00;
+    color: #3a610f;
     margin-bottom: 1rem;
 }
 
@@ -385,7 +385,7 @@ h2::after {
 }
 
 .company-text h3 {
-    color: #F57C00;
+    color: #3a610f;
     font-size: 1.8rem;
     margin-bottom: 1rem;
 }
@@ -410,13 +410,13 @@ h2::after {
     border-radius: 15px;
     text-align: center;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    border-left: 4px solid #388E3C;
+    border-left: 4px solid #c86d56;
 }
 
 .stat-number {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #F57C00;
+    color: #3a610f;
     display: block;
 }
 
@@ -427,7 +427,7 @@ h2::after {
 }
 
 .company-image {
-    background: linear-gradient(135deg, #F57C00, #FBC02D);
+    background: linear-gradient(135deg, #b0d4a1, #c86d56);
     border-radius: 20px;
     height: 450px;
     display: flex;
@@ -461,11 +461,11 @@ h2::after {
     background: white;
     padding: 0.5rem 1.5rem;
     border-radius: 25px;
-    color: #F57C00;
+    color: #3a610f;
     font-weight: bold;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     font-size: 0.9rem;
-    border: 2px solid #FBC02D;
+    border: 2px solid #b0d4a1;
 }
 
 .values-list {
@@ -477,7 +477,7 @@ h2::after {
 }
 
 .values-list h4 {
-    color: #388E3C;
+    color: #c86d56;
     margin-bottom: 1rem;
 }
 
@@ -496,13 +496,13 @@ h2::after {
     content: "✓";
     position: absolute;
     left: 0;
-    color: #388E3C;
+    color: #c86d56;
     font-weight: bold;
 }
 
 /* Promo Banner */
 .promo-banner {
-    background: linear-gradient(135deg, #388E3C 0%, #4CAF50 100%);
+    background: linear-gradient(135deg, #3a610f 0%, #b0d4a1 100%);
     padding: 2rem;
     text-align: center;
     color: white;
@@ -512,8 +512,8 @@ h2::after {
 }
 
 .promo-banner span {
-    background: #FBC02D;
-    color: #2d2d2d;
+    background: #c86d56;
+    color: white;
     padding: 0.3rem 1rem;
     border-radius: 20px;
     margin: 0 0.5rem;
@@ -535,7 +535,7 @@ footer {
 }
 
 .footer-section h3 {
-    color: #FBC02D;
+    color: #b0d4a1;
     margin-bottom: 1rem;
 }
 
@@ -547,7 +547,7 @@ footer {
 }
 
 .footer-section a:hover {
-    color: #F57C00;
+    color: #b0d4a1;
 }
 
 .social-links {
@@ -557,7 +557,7 @@ footer {
 }
 
 .social-links a {
-    background: #F57C00;
+    background: #3a610f;
     width: 40px;
     height: 40px;
     display: flex;
@@ -568,7 +568,7 @@ footer {
 }
 
 .social-links a:hover {
-    background: #FBC02D;
+    background: #b0d4a1;
     transform: translateY(-3px);
 }
 
